@@ -1,0 +1,20 @@
+body{
+  background-color: #1e1e1e;
+}
+
+.App {
+  max-width: 1440px;
+  width: 100%;
+  height: 100vh;
+  background-color: #363636;
+  padding: 30px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  color: cornflowerblue;
+}
+
+.App > div {
+  margin-right: 50px;
+}
