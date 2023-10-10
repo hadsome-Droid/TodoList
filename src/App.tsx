@@ -1,38 +1,29 @@
 import React from 'react';
 import './App.css';
-import styled from "styled-components";
+import {TodoList} from "./components/todolist/TodoList";
 
 function App() {
+    const truck1 = 'What to learn'
+    const truck2 = 'What to buy'
+
+    const tasks1 = [
+        { id: 1, title: "HTML&CSS", isDone: true },
+        { id: 2, title: "JS", isDone: true },
+        { id: 3, title: "ReactJS", isDone: false }
+    ]
+    const tasks2 = [
+        { id: 1, title: "Hello world", isDone: true },
+        { id: 2, title: "I am Happy", isDone: false },
+        { id: 3, title: "Yo", isDone: false }
+    ]
+
     return (
         <div className="App">
-            <div>
-                <h3>What to learn</h3>
-                <div>
-                    <input/>
-                    <button>+</button>
-                </div>
-                <ul>
-                    <li><input type="checkbox" checked={true}/> <span>HTML&CSS</span></li>
-                    <li><input type="checkbox" checked={true}/> <span>JS</span></li>
-                    <li><input type="checkbox" checked={false}/> <span>React</span></li>
-                </ul>
-                <AppButtonSection>
-                    <button>All</button>
-                    <button>Active</button>
-                    <button>Completed</button>
-                </AppButtonSection>
-            </div>
+            <TodoList truck={truck1} tasks={tasks1}/>
+            <TodoList truck={truck2} tasks={tasks2}/>
         </div>
     );
 }
 
 export default App;
 
-const AppButtonSection = styled.div`
-  display: flex;
-  justify-content: space-between;
-
-  button {
-    height: 30px;
-  }
-`
