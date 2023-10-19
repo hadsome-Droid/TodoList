@@ -3,9 +3,10 @@ import styled from "styled-components";
 import {Tasks} from "../tasks/Tasks";
 
 type TodoListPropsType = {
-    truck: string
+    title: string
     // tasks: TaskType[]
     tasks: Array<any>
+    filteredTasks?: () => void
 }
 
 // type TaskType = {
@@ -26,11 +27,11 @@ export const TodoList = (props: TodoListPropsType) => {
     //             </li>
     //         )
     //     })
-
+// const onClickHandler = props.filteredTasks()
     return (
         <div>
 
-            <h3>{props.truck}</h3>
+            <h3>{props.title}</h3>
             <div>
                 <input/>
                 <button>+</button>
@@ -44,7 +45,7 @@ export const TodoList = (props: TodoListPropsType) => {
                 {/*<li><input type="checkbox" checked={props.tasks[2].isDone}/> <span>{props.tasks[2].title}</span></li>*/}
             </ul>
             <AppButtonSection>
-                <button>All</button>
+                {/*<button onClick={()=>onClickHandler()}>All</button>*/}
                 <button>Active</button>
                 <button>Completed</button>
             </AppButtonSection>

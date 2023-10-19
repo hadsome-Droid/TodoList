@@ -16,6 +16,7 @@ export const Tasks = (props: TasksPropsType) => {
             <li key={el.id}>
                 <input type="checkbox" checked={el.isDone}/>
                 <span>{el.title}</span>
+                <button>x</button>
             </li>
         )
     })
