@@ -2,6 +2,7 @@ import React from 'react';
 
 type TasksPropsType = {
     tasks: TaskType[]
+    filteredTasks: (taskId: number)=> void
 }
 
 type TaskType = {
@@ -16,10 +17,15 @@ export const Tasks = (props: TasksPropsType) => {
             <li key={el.id}>
                 <input type="checkbox" checked={el.isDone}/>
                 <span>{el.title}</span>
-                <button>x</button>
+                <button onClick={()=>onClickButtonHandler(el.id)}>x</button>
             </li>
         )
     })
+
+    const onClickButtonHandler = (id: number) => {
+        props.filteredTasks(id)
+    }
+
     return (
         <>
             {tasks}

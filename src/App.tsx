@@ -19,14 +19,14 @@ function App() {
 
     const [tasks, setTasks] = useState(tasks1)
 
-    const filterdTasks = (taskId: number) => {
+    const filteredTasks = (taskId: number) => {
         let newTasks = tasks.filter(t => t.id !== taskId)
         setTasks(newTasks)
     }
 
     return (
         <div className="App">
-            <TodoList title={title1} tasks={tasks} />
+            <TodoList title={title1} tasks={tasks} filteredTasks={filteredTasks}/>
             {/*<TodoList title={title2} tasks={tasks2}/>*/}
         </div>
     );
