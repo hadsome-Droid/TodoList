@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import './App.css';
 import {TodoList} from "./components/todolist/TodoList";
 
+
+export type ButtonFilterType = 'All' | 'Active' | 'Completed'
 function App() {
     const title1 = 'What to learn'
     const title2 = 'What to buy'
@@ -23,10 +25,27 @@ function App() {
         let newTasks = tasks.filter(t => t.id !== taskId)
         setTasks(newTasks)
     }
+    const filteredButtonTask = (title: ButtonFilterType) => {
+        let filterTasks = tasks
+        if(title === 'Active'){
+            filterTasks = tasks.filter(elm => !elm.isDone)
+            setTasks(filterTasks)
+        }
+
+        if(title === 'Completed'){
+            filterTasks = tasks.filter(elm => elm.isDone)
+            setTasks(filterTasks)
+        }
+
+        if(title === 'All') {
+            setTasks(filterTasks)
+        }
+    }
+
 
     return (
         <div className="App">
-            <TodoList title={title1} tasks={tasks} filteredTasks={filteredTasks}/>
+            <TodoList title={title1} tasks={tasks} filteredTasks={filteredTasks} filteredButtonTask={filteredButtonTask}/>
             {/*<TodoList title={title2} tasks={tasks2}/>*/}
         </div>
     );

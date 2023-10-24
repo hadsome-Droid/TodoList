@@ -1,12 +1,14 @@
 import React from 'react';
 import styled from "styled-components";
 import {Tasks} from "../tasks/Tasks";
+import {ButtonFilterType} from "../../App";
 
 type TodoListPropsType = {
     title: string
     // tasks: TaskType[]
     tasks: Array<any>
     filteredTasks: (taskId: number) => void
+    filteredButtonTask: (title: ButtonFilterType) => void
 }
 
 // type TaskType = {
@@ -14,7 +16,6 @@ type TodoListPropsType = {
 //     title: string
 //     isDone: boolean
 // }
-
 
 
 export const TodoList = (props: TodoListPropsType) => {
@@ -28,6 +29,11 @@ export const TodoList = (props: TodoListPropsType) => {
     //         )
     //     })
 // const onClickHandler = props.filteredTasks()
+
+    const onClickHandler = (nameButton: ButtonFilterType) => {
+        props.filteredButtonTask(nameButton)
+    }
+
     return (
         <div>
 
@@ -45,9 +51,9 @@ export const TodoList = (props: TodoListPropsType) => {
                 {/*<li><input type="checkbox" checked={props.tasks[2].isDone}/> <span>{props.tasks[2].title}</span></li>*/}
             </ul>
             <AppButtonSection>
-                {/*<button onClick={()=>onClickHandler()}>All</button>*/}
-                <button>Active</button>
-                <button>Completed</button>
+                <button onClick={()=>onClickHandler('All')}>All</button>
+                <button onClick={() => onClickHandler('Active')}>Active</button>
+                <button onClick={()=>onClickHandler('Completed')}>Completed</button>
             </AppButtonSection>
         </div>
     );
