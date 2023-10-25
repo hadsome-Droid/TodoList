@@ -38,7 +38,7 @@ function App() {
         }
 
         if(title === 'All') {
-            setTasks(filterTasks)
+            setTasks(tasks1)
         }
     }
 

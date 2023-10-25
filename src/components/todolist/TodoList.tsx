@@ -34,12 +34,16 @@ export const TodoList = (props: TodoListPropsType) => {
         props.filteredButtonTask(nameButton)
     }
 
+    const onChangeHandler = (event: string) => {
+
+    }
+
     return (
         <div>
 
             <h3>{props.title}</h3>
             <div>
-                <input/>
+                <input onChange={()=>onChangeHandler('')}/>
                 <button>+</button>
             </div>
             <ul>
