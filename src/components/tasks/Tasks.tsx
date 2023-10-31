@@ -5,7 +5,7 @@ type TasksPropsType = {
     filteredTasks: (taskId: number)=> void
 }
 
-type TaskType = {
+export type TaskType = {
     id: number
     title: string
     isDone: boolean
